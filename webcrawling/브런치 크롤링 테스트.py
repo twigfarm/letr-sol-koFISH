@@ -2,12 +2,17 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 
-url = "https://brunch.co.kr/"
+# chrome driver
 driver = webdriver.Chrome(r"C:\Users\mode\Desktop\just\chromedriver_win32\chromedriver.exe")
+# 암묵적으로 웹 자원 로드를 위해 3초까지 기다려준다.
+#driver.implicitly_wait(3)
 
-user = ''
+user = input()
 
+# url 접근
+url = "https://brunch.co.kr/"
 driver.get(url)
+
 
 time.sleep(2)
 
@@ -23,7 +28,7 @@ time.sleep(2)
 user_search = driver.find_element_by_id("txt_search")
 
 user_search.clear()
-user_search.send_keys(user )
+user_search.send_keys(user)
 
 user_search.send_keys(Keys.RETURN)
 
@@ -40,4 +45,4 @@ actions.perform()
 brunchs = driver.find_elements_by_tag_name("h4")
 
 for brunch in brunchs:
-print (brunch.text)
+    print(brunch.text)
