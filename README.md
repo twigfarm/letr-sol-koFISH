@@ -163,7 +163,6 @@ classifier 모델 베이스라인은 Kobert NSMC clf와 Kobart NSMC clf 를 이�
  2-3. brunch small (10만) 
  2-4. brunch big(30만+)
 
-![image](https://user-images.githubusercontent.com/75319377/139583091-26f25000-76f7-432e-b5e4-d59117cfe821.png)
 
 - 향후 연구방향<br/>
 
