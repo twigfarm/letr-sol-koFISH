@@ -105,7 +105,32 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
    cd crawlier
    python crawlier.py
    ```
- ### 2. 스타일 트랜스퍼 진행
+   
+ ### 2-1. 브런치 데이터를 이용한 스타일 트랜스퍼 진행
+ 
+  options.py 에서 모델이 저장 될 경로를 수정, train, test, val_text파일 설정
+  
+   1) Classifier 모델 훈련
+
+       ```
+       python bert_pretrained/classifier.py --ckpt_path "./ckpt" --clf_ckpt_path "./clf_ckpt" 
+       
+       ```
+  
+   1) Style Transfer 모델 훈련
+      
+      ```
+      python train.py --ckpt_path "./ckpt" --clf_ckpt_path "./clf_ckpt"
+      
+      ```
+   3) Transfer!
+
+      ```
+      python trasfer.py --mode "transfer" --ckpt_path "./ckpt" --clf_ckpt_path "./clf_ckpt"
+
+      ```
+   
+ ### 2-2. 스타일 트랜스퍼 진행
  
    options.py 에서 train, test, val_text파일 설정 후 
     
@@ -128,10 +153,7 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
         python trasfer.py --mode "transfer" --ckpt_path "./ckpt" --clf_ckpt_path "./clf_ckpt"
 
         ```
- ### 2-1. Branch Data를 이용한 스타일 트랜스퍼 진행
- 
-   1) j
-   2)
+
    
    ## ❕ Results
 
