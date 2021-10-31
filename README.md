@@ -107,7 +107,8 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
  TST는 이미지 딥러닝에서 자주 사용되는 GAN 모델을 NLP 분야에서 차용하여 사용한 것이다. GAN에 대해 간략하게 설명하자면 다음과 같다.<br/>
  
  ![image](https://user-images.githubusercontent.com/75319377/139582379-236117cb-40e2-4e92-8c32-7d812f6331fc.png)
- ![image](https://user-images.githubusercontent.com/75319377/139582343-5d3b1c4a-217a-46ce-84c9-f1fb004d06e8.png)
+ ![image](https://user-images.githubusercontent.com/75319377/139582428-e100b767-5a14-499e-b0fe-9c182b280057.png)
+ ![image](https://user-images.githubusercontent.com/75319377/139582443-f2a81a25-6d09-4610-b8bd-8a99d66aadd4.png)
 
  
  "위조지폐범"으로 비유되는 generator는 가짜 지폐를 만들고 "위조지폐구분자"로 비유되는 discriminator는 이를 진짜 지폐와 가짜 지폐로 구분한다.<br/>
