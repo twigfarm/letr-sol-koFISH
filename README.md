@@ -123,7 +123,16 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
    ```
  ### 2-1. 브런치 데이터를 이용한 스타일 트랜스퍼 진행
  
-  options.py 에서 모델이 저장 될 경로를 수정, train, test, val_text파일 설정
+  options.py 에서 dataset default값 수정, train, test, val_text파일 설정
+  ```
+  
+  #dataset
+  default = "br"
+  args.text_file_path = "train file 경로 입력"
+  args.val_text_file_path = "validation file 경로 입력"
+  args.text_text_path = "test file 경로 입력"
+  args.clf_ckpt_path = "model 경로 입력" 
+  ```
   
    1) Classifier 모델 훈련
 
