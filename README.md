@@ -150,8 +150,10 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
   2) BART<br/>
   ![image](https://user-images.githubusercontent.com/75319377/139582943-5d11a600-6b62-43dc-a82c-4108e00dac1f.png)
 
-  clf들을 살펴볼 때, Bart Model 이 확실히 classifier에 적합하다고 할 수 있다. bert model의 경우 accuracy가 거의 0.5를 배회하는데 사실 이건 거의 임의로 선택하는 수준이라고 볼 수 있다.<br/>
-  bart classifier를 적용해야 하는데 문제는 kobart 의 pytorch version 과 style transfer의 pytorch version requirements가 다르다. 또한 GPU issue도 있기때문에 이를 해결하기 위해 노력중이다.<br/>
+  clf들을 살펴볼 때, BART Model 이 확실히 classifier에 적합하다고 할 수 있다.<br/>
+  BERT model의 경우 accuracy가 거의 0.5를 배회하는데 사실 이건 거의 임의로 선택하는 수준이라고 볼 수 있다.<br/>
+  BERT classifier를 적용해야 하는데 문제는 KoBART 의 pytorch version 과 style transfer의 pytorch version requirements가 다르다.<br/>
+  또한 GPU issue도 있기때문에 이를 해결하기 위해 노력중이다.<br/>
  
 - trials<br/>
 
