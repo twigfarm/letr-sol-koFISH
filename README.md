@@ -34,7 +34,7 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
    카테고리 별 리스트 페이지로 이동이 되며, 리스트 페이지로 이동시 마우스 드래그를 통해 이전 게시물을 로드합니다.<br/>
    웹 브라우저 개발자 도구(f12 function key)를 활성화 하여 Network 카테고리에서 업로드를 확인 할 수 있으며 업로드 되는 링크는 다음과 같습니다.<br/>
    https://api.brunch.co.kr/v1/top/keyword/group/38?publishTime=1635554744000&pickContentId=<br/>
-   게시물을 내려 개발자 도구 Network 카테고리에서 로드되는 Name을 선택하여 Header 카테고리에서 디테일한 정보를 확인할 수 있습니다.<br/>
+   게시물을 내려 개발자 도구 Network 카테고리에서 로드되는 Name을 선택시, Header 카테고리에서 디테일한 정보를 확인할 수 있습니다.<br/>
    해당 경로의 Query String Parameters 업데이트를 통해 이전 게시물에 접근이 가능하다는 것을 알 수 있습니다.0
    ```
    #Query String Prameters
