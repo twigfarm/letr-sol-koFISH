@@ -104,6 +104,7 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
  저자의 코드가 Papers with code 에 게재되어 있지만 python2.x , tensorflow1.x를 사용하고 있어 버전 상의 어려움으로 인하여 저자의 코드를 직접 구현한 동아리 DIYA의 엄의섭님 외 3인이 작성한 코드(각주 추가)를 바탕으로 구현하였다.
  
 - GAN 모델 소개<br/>
+
  TST는 이미지 딥러닝에서 자주 사용되는 GAN 모델을 NLP 분야에서 차용하여 사용한 것이다. GAN에 대해 간략하게 설명하자면 다음과 같다.<br/>
  
  ![image](https://user-images.githubusercontent.com/75319377/139582379-236117cb-40e2-4e92-8c32-7d812f6331fc.png)
@@ -120,6 +121,7 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
  이처럼 Generator는 V(D, G)를 최소화하고( V(D, G)=-inf), Discriminator는 V(D, G)를 최대화 하는( V(D, G)=0)팽팽한 적대적인 관계 내에서 결론적으로 구분할 수 없는 위조지폐같은 <가짜>를 얻어 내는 것이 본 신경망의 기법이다.
 
 - NLP에서의 차용<br/>
+
  이미지는 연속적인 데이터를 주재료로 하는 반면, NLP 태스크는 연속적이지 않고 이산적이기 때문에(discrete) Style Transfer를 하기 위해서 잠재 의미 공간(Latent Space)이 필요하다.<br/>
  이 원본과 변형물(transfered) 사이의 잠재 공간을 형성하게 해주는 알고리즘이 Crossed - Aligned Auto Encoder다.<br/>
  
@@ -128,6 +130,7 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
  Crossed Aligned Autoencoder는 위의 표와 같이 잠재 공간을 통해 목표 스타일과 유사한 스타일을 구현해 내고 Epoch를 넘어갈수록 유사한 스타일을 generate 하여 각 영역의 Discriminator가 구분 하기 어렵게 만든다.<br/>
 
 - 모델 적용<br/>
+
  원문 데이터와 번역 데이터 쌍을 준비하여 각 코퍼스에 라벨링을 하고 라벨링하여 분류된 데이터를 가지고 original(원문데이터)와 fake original(역번역 데이터+ style transfer generating) 을 Discriminator를 통해 구별하고 로스값을 낮추는 방식으로 훈련하였다.<br/>
 Evaluation은 clf와의 비교를 통해서 이루어진다. 그말은 곧 Classifier성능이 중요하다는 이야기다.<br/> 이후에도 언급하겠지만, Style Transfer보다도 성능이 안나오는 게 classifier 모델이다.<br/>
 classifier 모델 베이스라인은 Kobert NSMC clf와 Kobart NSMC clf 를 이용했다.<br/>
@@ -149,7 +152,8 @@ classifier 모델 베이스라인은 Kobert NSMC clf와 Kobart NSMC clf 를 이�
  clf들을 살펴볼 때, Bart Model 이 확실히 classifier에 적합하다고 할 수 있다. bert model의 경우 accuracy가 거의 0.5를 배회하는데 사실 이건 거의 임의로 선택하는 수준이라고 볼 수 있다.<br/>
  bart classifier를 적용해야 하는데 문제는 kobart 의 pytorch version 과 style transfer의 pytorch version requirements가 다르다. 또한 GPU issue도 있기때문에 이를 해결하기 위해 노력중이다.<br/>
  
-- trials
+- trials<br/>
+
 1. NSMC test (Sentiment Transfer) - Baseline 
  1-1. tokenizer, model = kobert
  1-2. classifier = kobert
@@ -162,6 +166,7 @@ classifier 모델 베이스라인은 Kobert NSMC clf와 Kobart NSMC clf 를 이�
 ![image](https://user-images.githubusercontent.com/75319377/139583091-26f25000-76f7-432e-b5e4-d59117cfe821.png)
 
 - 향후 연구방향<br/>
+
  본 연구의 향후 쓰임으로, 두 가지 방향을 제시한다. 우선, 기본적으로 두 방향 모두 한국어를 한국어로 옮기는 과정을 거치는 것을 조건으로 한다.<br/>
  **첫번째**, 번역기에 넣기 전 날 것의 한국어 표현을 번역기가 인식할 수 있는 문장, 즉 번역하기 좋은 문장으로 변환시키는 연구방향이 있다.<br/>
  이는 번역기가 오역을 하는 경우의 수를 줄여 줄 것이라고 예상된다. 예를 들어, 어순을 보정하거나 오타를 보정하는 등의 기능이 가능하다.<br/>
