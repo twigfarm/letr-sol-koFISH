@@ -68,7 +68,8 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
 
 
 -  브런치 크롤러 사용 방법<br/>
-   1) 해당 크롤러는 경로 수정 및 카테고리 넘버 수정을 통해 작동이 가능합니다.　　　　　
+   1) 해당 크롤러는 경로 수정 및 카테고리 넘버 수정을 통해 작동이 가능합니다.<br/>
+   ※ 자세한 사항은 아래 How to use 참고.　　　　　
 
 
 -  브런치 크롤러 문제점<br/>
@@ -91,21 +92,31 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
 
 
  ### 1-2. Korpora Library Data 한/영 자막
-
+ 참조: https://github.com/ko-nlp/Korpora <br/>
+ 코포라 라이브러리에서 제공하는 한/영 병렬 말뭉치 자막 데이터를 이용하여 데이터 구축.
+ 
  ### ● Model
  
  #<hr width = "100%" color = "gray" size = "0.1">
  <br/><br/>
  
  ## ❔ How to use
- ### 1. Crawlier
-   crawlier/crawlier.py 파일을 열어 저장경로와 카테고리 넘버를 수정 후 진행
+ ### 1-1. Crawlier
+   data/src/crawlier/crawlier.py 파일을 열어 저장경로와 카테고리 넘버를 수정 후 진행
    
    ```
    cd crawlier
    python crawlier.py
-   ```
    
+   ```
+ ### 1-2. Korpora Library Data
+   data/src/korpora/korpora.py 파일을 열어 로드/세이브 경로 설정 후 진행
+   
+   ```
+   cd data/src/korpora
+   python korpora.py
+   
+   ```
  ### 2-1. 브런치 데이터를 이용한 스타일 트랜스퍼 진행
  
   options.py 에서 모델이 저장 될 경로를 수정, train, test, val_text파일 설정
