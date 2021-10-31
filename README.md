@@ -96,7 +96,7 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
 
  ### ● Model
 
- ### 2. 스타일 트랜스퍼 진행
+ ### 2-1. 스타일 트랜스퍼 진행
  
    options.py 에서 train, test, val_text파일 설정 후 
     
@@ -119,7 +119,9 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
         python trasfer.py --mode "transfer" --ckpt_path "./ckpt" --clf_ckpt_path "./clf_ckpt"
 
         ```
-    
+ ### 2-1. Branch Data를 이용한 스타일 트랜스퍼 진행
+ 
+   1) 
 
    ## 🍰 Results
 
