@@ -94,7 +94,12 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
  ### 1-2. Korpora Library Data 한/영 자막
   코포라 라이브러리에서 제공하는 한/영 병렬 말뭉치 자막 데이터를 이용하여 데이터 구축.
   참조: https://github.com/ko-nlp/Korpora <br/>
+  <br/><br/>
+  
+  
  ### ● Model
+ 본 프로젝트에서 사용한 Baseline Code는 저자인 Tianxiao Shen의 것이 아니다. 저자의 코드가 Papers with code 에 게재되어 있지만 python2.x , tensorflow1.x를 사용하고 있어 버전 상의 어려움으로 인하여 저자의 코드를 직접 구현한 동아리 DIYA의 엄의섭님 외 3인이 작성한 코드(각주 추가)를 바탕으로 구현하였다.
+
  
  #<hr width = "100%" color = "gray" size = "0.1">
  <br/><br/>
