@@ -91,7 +91,7 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
      　　발생하는 결함을 피하기 위한 임시 코드<br/>
      　　반복 for문의 중복 사용 등
 
-<hr size="0.5px" />
+<hr width = "100%" color = "blue" size = "0.1">
 
  1-2. Korpora Library Data 한/영 자막
 
