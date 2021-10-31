@@ -126,7 +126,7 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
   이미지는 연속적인 데이터를 주재료로 하는 반면, NLP 태스크는 연속적이지 않고 이산적이기 때문에(discrete) Style Transfer를 하기 위해서 잠재 의미 공간(Latent Space)이 필요하다.<br/>
   이 원본과 변형물(transfered) 사이의 잠재 공간을 형성하게 해주는 알고리즘이 Crossed - Aligned Auto Encoder다.<br/>
 
- ![image](https://user-images.githubusercontent.com/75319377/139582628-9e9eeb2c-6bce-4e54-8eb0-be08a2a61b33.png)
+  ![image](https://user-images.githubusercontent.com/75319377/139582628-9e9eeb2c-6bce-4e54-8eb0-be08a2a61b33.png)
 
   Crossed Aligned Autoencoder는 위의 표와 같이 잠재 공간을 통해 목표 스타일과 유사한 스타일을 구현해 내고 Epoch를 넘어갈수록 유사한 스타일을 generate 하여 각 영역의 Discriminator가 구분 하기 어렵게 만든다.<br/>
 
