@@ -106,63 +106,63 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
  
 - GAN 모델 소개<br/>
 
- TST는 이미지 딥러닝에서 자주 사용되는 GAN 모델을 NLP 분야에서 차용하여 사용한 것이다. GAN에 대해 간략하게 설명하자면 다음과 같다.<br/>
- 
- ![image](https://user-images.githubusercontent.com/75319377/139582379-236117cb-40e2-4e92-8c32-7d812f6331fc.png)
- ![image](https://user-images.githubusercontent.com/75319377/139582517-6ba9a630-8f0a-4d44-9f64-839c1067aa24.png)
+  TST는 이미지 딥러닝에서 자주 사용되는 GAN 모델을 NLP 분야에서 차용하여 사용한 것이다. GAN에 대해 간략하게 설명하자면 다음과 같다.<br/>
+
+  ![image](https://user-images.githubusercontent.com/75319377/139582379-236117cb-40e2-4e92-8c32-7d812f6331fc.png)
+  ![image](https://user-images.githubusercontent.com/75319377/139582517-6ba9a630-8f0a-4d44-9f64-839c1067aa24.png)
 
  
- "위조지폐범"으로 비유되는 generator는 가짜 지폐를 만들고 "위조지폐구분자"로 비유되는 discriminator는 이를 진짜 지폐와 가짜 지폐로 구분한다.<br/>
- 처음에는 노이즈로 만든 가짜 지폐를 사용하기 때문에 Discriminator가 이를 구분하기 쉽지만, Generator는 더욱 이를 진짜 지폐처럼 만들게 되고, Discriminator의 구분 능력도 더 향상되어서, 결론적으로 진짜와 가짜를 더 이상 구분하지 못할 때 (즉 확률이 0.5가 될 때) 학습은 멈추게 된다.)<br/>
- Discriminator와 Generator의 목적함수이다. V(D, G)가 목적함수인데 이를 Generator 입장에서는 최소화 하고, Discriminator입장에서는 최대화하는 것이 본 모델 - 생성적 적대 신경망 -의 목적이다.<br/>
- D(x)는 Discriminator가 진짜를 진짜로 구분할 확률이고, D(G(z))는 Discriminator가 가짜를 진짜로 구분할 확률이다. 때문에 Discriminator는 전자(D(x))는 최대화하고 후자(D(G(z))는 최소화 하는 데 그 목적이 있다.<br/>
- 실제로 이를 이루게 되면, 즉 진짜는 진짜로 가짜는 완전히 가짜로 구분하게 되면 D(x) = 1, D(G(z))=0이 되고 각각 log(1) = 0 , log(1-0)=0이 되므로 최대값 0을 산출하게 된다.<br/>
- 이와 달리 Generator는 D(x)와는 무관하게 D(G(z))=1로 만드는 데 목적이 있다.<br/>
- log (1-1) = log(0)은 -inf므로 D(G(z))가 = 1일 때 V(D,G)는 최소가 된다.<br/>
- 이처럼 Generator는 V(D, G)를 최소화하고( V(D, G)=-inf), Discriminator는 V(D, G)를 최대화 하는( V(D, G)=0)팽팽한 적대적인 관계 내에서 결론적으로 구분할 수 없는 위조지폐같은 <가짜>를 얻어 내는 것이 본 신경망의 기법이다.
+  "위조지폐범"으로 비유되는 generator는 가짜 지폐를 만들고 "위조지폐구분자"로 비유되는 discriminator는 이를 진짜 지폐와 가짜 지폐로 구분한다.<br/>
+  처음에는 노이즈로 만든 가짜 지폐를 사용하기 때문에 Discriminator가 이를 구분하기 쉽지만, Generator는 더욱 이를 진짜 지폐처럼 만들게 되고, Discriminator의 구분 능력도 더 향상되어서, 결론적으로 진짜와 가짜를 더 이상 구분하지 못할 때 (즉 확률이 0.5가 될 때) 학습은 멈추게 된다.)<br/>
+  Discriminator와 Generator의 목적함수이다. V(D, G)가 목적함수인데 이를 Generator 입장에서는 최소화 하고, Discriminator입장에서는 최대화하는 것이 본 모델 - 생성적 적대 신경망 -의 목적이다.<br/>
+  D(x)는 Discriminator가 진짜를 진짜로 구분할 확률이고, D(G(z))는 Discriminator가 가짜를 진짜로 구분할 확률이다. 때문에 Discriminator는 전자(D(x))는 최대화하고 후자(D(G(z))는 최소화 하는 데 그 목적이 있다.<br/>
+  실제로 이를 이루게 되면, 즉 진짜는 진짜로 가짜는 완전히 가짜로 구분하게 되면 D(x) = 1, D(G(z))=0이 되고 각각 log(1) = 0 , log(1-0)=0이 되므로 최대값 0을 산출하게 된다.<br/>
+  이와 달리 Generator는 D(x)와는 무관하게 D(G(z))=1로 만드는 데 목적이 있다.<br/>
+  log (1-1) = log(0)은 -inf므로 D(G(z))가 = 1일 때 V(D,G)는 최소가 된다.<br/>
+  이처럼 Generator는 V(D, G)를 최소화하고( V(D, G)=-inf), Discriminator는 V(D, G)를 최대화 하는( V(D, G)=0)팽팽한 적대적인 관계 내에서 결론적으로 구분할 수 없는 위조지폐같은 <가짜>를 얻어 내는 것이 본 신경망의 기법이다.
 
 - NLP에서의 차용<br/>
 
- 이미지는 연속적인 데이터를 주재료로 하는 반면, NLP 태스크는 연속적이지 않고 이산적이기 때문에(discrete) Style Transfer를 하기 위해서 잠재 의미 공간(Latent Space)이 필요하다.<br/>
- 이 원본과 변형물(transfered) 사이의 잠재 공간을 형성하게 해주는 알고리즘이 Crossed - Aligned Auto Encoder다.<br/>
- 
-![image](https://user-images.githubusercontent.com/75319377/139582628-9e9eeb2c-6bce-4e54-8eb0-be08a2a61b33.png)
+  이미지는 연속적인 데이터를 주재료로 하는 반면, NLP 태스크는 연속적이지 않고 이산적이기 때문에(discrete) Style Transfer를 하기 위해서 잠재 의미 공간(Latent Space)이 필요하다.<br/>
+  이 원본과 변형물(transfered) 사이의 잠재 공간을 형성하게 해주는 알고리즘이 Crossed - Aligned Auto Encoder다.<br/>
 
- Crossed Aligned Autoencoder는 위의 표와 같이 잠재 공간을 통해 목표 스타일과 유사한 스타일을 구현해 내고 Epoch를 넘어갈수록 유사한 스타일을 generate 하여 각 영역의 Discriminator가 구분 하기 어렵게 만든다.<br/>
+ ![image](https://user-images.githubusercontent.com/75319377/139582628-9e9eeb2c-6bce-4e54-8eb0-be08a2a61b33.png)
+
+  Crossed Aligned Autoencoder는 위의 표와 같이 잠재 공간을 통해 목표 스타일과 유사한 스타일을 구현해 내고 Epoch를 넘어갈수록 유사한 스타일을 generate 하여 각 영역의 Discriminator가 구분 하기 어렵게 만든다.<br/>
 
 - 모델 적용<br/>
 
- 원문 데이터와 번역 데이터 쌍을 준비하여 각 코퍼스에 라벨링을 하고 라벨링하여 분류된 데이터를 가지고 original(원문데이터)와 fake original(역번역 데이터+ style transfer generating) 을 Discriminator를 통해 구별하고 로스값을 낮추는 방식으로 훈련하였다.<br/>
-Evaluation은 clf와의 비교를 통해서 이루어진다. 그말은 곧 Classifier성능이 중요하다는 이야기다.<br/> 이후에도 언급하겠지만, Style Transfer보다도 성능이 안나오는 게 classifier 모델이다.<br/>
-classifier 모델 베이스라인은 Kobert NSMC clf와 Kobart NSMC clf 를 이용했다.<br/>
+  원문 데이터와 번역 데이터 쌍을 준비하여 각 코퍼스에 라벨링을 하고 라벨링하여 분류된 데이터를 가지고 original(원문데이터)와 fake original(역번역 데이터+ style transfer generating) 을 Discriminator를 통해 구별하고 로스값을 낮추는 방식으로 훈련하였다.<br/>
+ Evaluation은 clf와의 비교를 통해서 이루어진다. 그말은 곧 Classifier성능이 중요하다는 이야기다.<br/> 이후에도 언급하겠지만, Style Transfer보다도 성능이 안나오는 게 classifier 모델이다.<br/>
+ classifier 모델 베이스라인은 Kobert NSMC clf와 Kobart NSMC clf 를 이용했다.<br/>
 
 - 버트와 바트의 로스 비교 (2 epoch)<br/>
- 1) BERT<br/>
- ![image](https://user-images.githubusercontent.com/75319377/139582864-b2a49065-2f7f-45e7-b3d5-22263a296f8f.png)
+  1) BERT<br/>
+  ![image](https://user-images.githubusercontent.com/75319377/139582864-b2a49065-2f7f-45e7-b3d5-22263a296f8f.png)
 
- 2) BART<br/>
- ![image](https://user-images.githubusercontent.com/75319377/139582883-bff766da-8c6d-4823-aa79-a99d9c25aa65.png)
+  2) BART<br/>
+  ![image](https://user-images.githubusercontent.com/75319377/139582883-bff766da-8c6d-4823-aa79-a99d9c25aa65.png)
 
 - 버트와 바트의 Accuracy 비교 (2epoch)<br/>
- 1) BERT<br/>
- ![image](https://user-images.githubusercontent.com/75319377/139582935-0212fc7b-1874-4fee-bae2-ae0e6eebf15d.png)
+  1) BERT<br/>
+  ![image](https://user-images.githubusercontent.com/75319377/139582935-0212fc7b-1874-4fee-bae2-ae0e6eebf15d.png)
 
- 2) BART<br/>
- ![image](https://user-images.githubusercontent.com/75319377/139582943-5d11a600-6b62-43dc-a82c-4108e00dac1f.png)
+  2) BART<br/>
+  ![image](https://user-images.githubusercontent.com/75319377/139582943-5d11a600-6b62-43dc-a82c-4108e00dac1f.png)
 
- clf들을 살펴볼 때, Bart Model 이 확실히 classifier에 적합하다고 할 수 있다. bert model의 경우 accuracy가 거의 0.5를 배회하는데 사실 이건 거의 임의로 선택하는 수준이라고 볼 수 있다.<br/>
- bart classifier를 적용해야 하는데 문제는 kobart 의 pytorch version 과 style transfer의 pytorch version requirements가 다르다. 또한 GPU issue도 있기때문에 이를 해결하기 위해 노력중이다.<br/>
+  clf들을 살펴볼 때, Bart Model 이 확실히 classifier에 적합하다고 할 수 있다. bert model의 경우 accuracy가 거의 0.5를 배회하는데 사실 이건 거의 임의로 선택하는 수준이라고 볼 수 있다.<br/>
+  bart classifier를 적용해야 하는데 문제는 kobart 의 pytorch version 과 style transfer의 pytorch version requirements가 다르다. 또한 GPU issue도 있기때문에 이를 해결하기 위해 노력중이다.<br/>
  
 - trials<br/>
 
-1. NSMC test (Sentiment Transfer) - Baseline 
- 1-1. tokenizer, model = kobert
- 1-2. classifier = kobert
-2. AIhub 구어체 test (Style Transfer) 
- 2-1. 위와 상동
- 2-2. 아예 acc자체를 올리는 게 불가능해 보였다.
- 2-3. brunch small (10만) 
- 2-4. brunch big(30만+)
+ 1. NSMC test (Sentiment Transfer) - Baseline 
+  1-1. tokenizer, model = kobert
+  1-2. classifier = kobert
+ 2. AIhub 구어체 test (Style Transfer) 
+  2-1. 위와 상동
+  2-2. 아예 acc자체를 올리는 게 불가능해 보였다.
+  2-3. brunch small (10만) 
+  2-4. brunch big(30만+)
 
  
  <hr width = "100%" color = "gray" size = "0.1">
@@ -258,6 +258,7 @@ classifier 모델 베이스라인은 Kobert NSMC clf와 Kobart NSMC clf 를 이�
   bart classifier의 경우는 0.8이 넘는 구분 성능을 보여주었지만, 이 또한 **성능 평가 지표**로만 활용될 뿐 실제 훈련에 **영향을 주지 않기 때문**에 성능 향상에는 어려움을 겪었습니다. 
 
 - 향후 연구방향
+
   본 연구의 향후 쓰임으로, 두 가지 방향을 제시한다. 우선, 기본적으로 두 방향 모두 한국어를 한국어로 옮기는 과정을 거치는 것을 조건으로 한다.<br/>
   **첫번째**, 번역기에 넣기 전 날 것의 한국어 표현을 번역기가 인식할 수 있는 문장, 즉 번역하기 좋은 문장으로 변환시키는 연구방향이 있다.<br/>
   이는 번역기가 오역을 하는 경우의 수를 줄여 줄 것이라고 예상된다. 예를 들어, 어순을 보정하거나 오타를 보정하는 등의 기능이 가능하다.<br/>
