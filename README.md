@@ -133,17 +133,17 @@ Evaluation은 clf와의 비교를 통해서 이루어진다. 그말은 곧 Class
 classifier 모델 베이스라인은 Kobert NSMC clf와 Kobart NSMC clf 를 이용했다.<br/>
 
 - 버트와 바트의 로스 비교 (2 epoch)<br/>
- 1) BERT
+ 1) BERT<br/>
  ![image](https://user-images.githubusercontent.com/75319377/139582864-b2a49065-2f7f-45e7-b3d5-22263a296f8f.png)
 
- 2) BART
+ 2) BART<br/>
  ![image](https://user-images.githubusercontent.com/75319377/139582883-bff766da-8c6d-4823-aa79-a99d9c25aa65.png)
 
 - 버트와 바트의 Accuracy 비교 (2epoch)<br/>
- 1) BERT
+ 1) BERT<br/>
  ![image](https://user-images.githubusercontent.com/75319377/139582935-0212fc7b-1874-4fee-bae2-ae0e6eebf15d.png)
 
- 2) BART
+ 2) BART<br/>
  ![image](https://user-images.githubusercontent.com/75319377/139582943-5d11a600-6b62-43dc-a82c-4108e00dac1f.png)
 
  clf들을 살펴볼 때, Bart Model 이 확실히 classifier에 적합하다고 할 수 있다. bert model의 경우 accuracy가 거의 0.5를 배회하는데 사실 이건 거의 임의로 선택하는 수준이라고 볼 수 있다.<br/>
