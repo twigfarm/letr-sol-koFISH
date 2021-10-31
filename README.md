@@ -92,11 +92,19 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
 
  ### 1-2. Korpora Library Data 한/영 자막
 
-<hr width = "100%" color = "gray" size = "0.1">
-
  ### ● Model
-
- ### 2-1. 스타일 트랜스퍼 진행
+ 
+ <hr width = "100%" color = "gray" size = "0.1">
+ 
+ ## ❔ How to use
+ ### 1. Crawlier
+   crawlier/crawlier.py 파일을 열어 경로와 카테고리 넘버를 수정 후 진행
+   
+   ```
+   cd crawlier
+   python crawlier.py
+   ```
+ ### 2. 스타일 트랜스퍼 진행
  
    options.py 에서 train, test, val_text파일 설정 후 
     
@@ -122,9 +130,7 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
  ### 2-1. Branch Data를 이용한 스타일 트랜스퍼 진행
  
    1) j
-   2) 
-   
-   ## ❔ How to use
+   2)
    
    ## 🍰 Results
 
