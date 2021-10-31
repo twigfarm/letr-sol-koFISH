@@ -103,7 +103,7 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
  본 프로젝트에서 사용한 Baseline Code는 저자인 Tianxiao Shen의 것이 아니다.<br/>
  저자의 코드가 Papers with code 에 게재되어 있지만 python2.x , tensorflow1.x를 사용하고 있어 버전 상의 어려움으로 인하여 저자의 코드를 직접 구현한 동아리 DIYA의 엄의섭님 외 3인이 작성한 코드(각주 추가)를 바탕으로 구현하였다.
  
-- GAN 모델 소개
+- GAN 모델 소개<br/>
  TST는 이미지 딥러닝에서 자주 사용되는 GAN 모델을 NLP 분야에서 차용하여 사용한 것이다. GAN에 대해 간략하게 설명하자면 다음과 같다.<br/>
  
  ![image](https://user-images.githubusercontent.com/75319377/139582379-236117cb-40e2-4e92-8c32-7d812f6331fc.png)
