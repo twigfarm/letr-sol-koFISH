@@ -16,8 +16,8 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
 
 
  ## 🐕 EXAMPLES
- ### ● DATA
- 1-1. 브런치 데이터 크롤러<br/>
+ ## ● DATA
+ ### 1-1. 브런치 데이터 크롤러<br/>
  본 프로젝트에서는 보다 자연스러운 구어체를 필요로 했습니다. 따라서 게시글 작성자에 의해 1차 정제가 이뤄진 문장을 크롤링 하고자 했습니다.<br/>
  브런치라는 사이트에 게재된 게시글은 준전문가라고 볼 수 있는 작성자에 의한 1차 정제가 이뤄진 문장이며, 타 사이트에 비해 비교적 깨끗한 상태라고 판단했습니다. 따라서 해당 사이트를 크롤링했습니다.
 -  브런치 구조(https://brunch.co.kr/)<br/>
@@ -90,13 +90,13 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
 
 
 
- 1-2. Korpora Library Data 한/영 자막
+ ### 1-2. Korpora Library Data 한/영 자막
 
 <hr width = "100%" color = "gray" size = "0.1">
 
-● Model
+## ● Model
 
- 2. 스타일 트랜스퍼 진행
+ ### 2. 스타일 트랜스퍼 진행
     options.py 에서 train, test, val_text파일 설정 후 
     
     1) Classifier 모델 훈련
