@@ -92,9 +92,8 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
 
 
  ### 1-2. Korpora Library Data 한/영 자막
- 참조: https://github.com/ko-nlp/Korpora <br/>
- 코포라 라이브러리에서 제공하는 한/영 병렬 말뭉치 자막 데이터를 이용하여 데이터 구축.
- 
+  코포라 라이브러리에서 제공하는 한/영 병렬 말뭉치 자막 데이터를 이용하여 데이터 구축.
+  참조: https://github.com/ko-nlp/Korpora <br/>
  ### ● Model
  
  #<hr width = "100%" color = "gray" size = "0.1">
