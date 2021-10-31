@@ -119,13 +119,43 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
  log (1-1) = log(0)은 -inf므로 D(G(z))가 = 1일 때 V(D,G)는 최소가 된다.<br/>
  이처럼 Generator는 V(D, G)를 최소화하고( V(D, G)=-inf), Discriminator는 V(D, G)를 최대화 하는( V(D, G)=0)팽팽한 적대적인 관계 내에서 결론적으로 구분할 수 없는 위조지폐같은 <가짜>를 얻어 내는 것이 본 신경망의 기법이다.
 
-- NLP에서의 차용
+- NLP에서의 차용<br/>
  이미지는 연속적인 데이터를 주재료로 하는 반면, NLP 태스크는 연속적이지 않고 이산적이기 때문에(discrete) Style Transfer를 하기 위해서 잠재 의미 공간(Latent Space)이 필요하다.<br/>
  이 원본과 변형물(transfered) 사이의 잠재 공간을 형성하게 해주는 알고리즘이 Crossed - Aligned Auto Encoder다.<br/>
  
+![image](https://user-images.githubusercontent.com/75319377/139582628-9e9eeb2c-6bce-4e54-8eb0-be08a2a61b33.png)
 
+ Crossed Aligned Autoencoder는 위의 표와 같이 잠재 공간을 통해 목표 스타일과 유사한 스타일을 구현해 내고 Epoch를 넘어갈수록 유사한 스타일을 generate 하여 각 영역의 Discriminator가 구분 하기 어렵게 만든다.<br/>
 
+- 모델 적용<br/>
+ 원문 데이터와 번역 데이터 쌍을 준비하여 각 코퍼스에 라벨링을 하고 라벨링하여 분류된 데이터를 가지고 original(원문데이터)와 fake original(역번역 데이터+ style transfer generating) 을 Discriminator를 통해 구별하고 로스값을 낮추는 방식으로 훈련하였다.<br/>
+Evaluation은 clf와의 비교를 통해서 이루어진다. 그말은 곧 Classifier성능이 중요하다는 이야기다.<br/> 이후에도 언급하겠지만, Style Transfer보다도 성능이 안나오는 게 classifier 모델이다.<br/>
+classifier 모델 베이스라인은 Kobert NSMC clf와 Kobart NSMC clf 를 이용했다.<br/>
+
+- 버트와 바트의 로스 비교 (2 epoch)<br/>
+ 1) BERT
+ ![image](https://user-images.githubusercontent.com/75319377/139582864-b2a49065-2f7f-45e7-b3d5-22263a296f8f.png)
+
+ 2) BART
+ ![image](https://user-images.githubusercontent.com/75319377/139582883-bff766da-8c6d-4823-aa79-a99d9c25aa65.png)
+
+- 버트와 바트의 Accuracy 비교 (2epoch)<br/>
+ 1) BERT
+ ![image](https://user-images.githubusercontent.com/75319377/139582935-0212fc7b-1874-4fee-bae2-ae0e6eebf15d.png)
+
+ 2) BART
+ ![image](https://user-images.githubusercontent.com/75319377/139582943-5d11a600-6b62-43dc-a82c-4108e00dac1f.png)
+
+ clf들을 살펴볼 때, Bart Model 이 확실히 classifier에 적합하다고 할 수 있다. bert model의 경우 accuracy가 거의 0.5를 배회하는데 사실 이건 거의 임의로 선택하는 수준이라고 볼 수 있다.<br/>
+ bart classifier를 적용해야 하는데 문제는 kobart 의 pytorch version 과 style transfer의 pytorch version requirements가 다르다. 또한 GPU issue도 있기때문에 이를 해결하기 위해 노력중이다.<br/>
  
+- trials
+1. NSMC test (Sentiment Transfer) - Baseline 
+ 1-1. tokenizer, model = kobert
+ 1-2. classifier = kobert
+2. AIhub 구어체 test (Style Transfer) 
+ 2-1. 위와 상동
+
 
  
  #<hr width = "100%" color = "gray" size = "0.1">
