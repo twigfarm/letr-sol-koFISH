@@ -98,7 +98,33 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
   
   
  ### ● Model
- 본 프로젝트에서 사용한 Baseline Code는 저자인 Tianxiao Shen의 것이 아니다. 저자의 코드가 Papers with code 에 게재되어 있지만 python2.x , tensorflow1.x를 사용하고 있어 버전 상의 어려움으로 인하여 저자의 코드를 직접 구현한 동아리 DIYA의 엄의섭님 외 3인이 작성한 코드(각주 추가)를 바탕으로 구현하였다.
+ ### 1-1. Style transfer for Language
+ 
+ 본 프로젝트에서 사용한 Baseline Code는 저자인 Tianxiao Shen의 것이 아니다.<br/>
+ 저자의 코드가 Papers with code 에 게재되어 있지만 python2.x , tensorflow1.x를 사용하고 있어 버전 상의 어려움으로 인하여 저자의 코드를 직접 구현한 동아리 DIYA의 엄의섭님 외 3인이 작성한 코드(각주 추가)를 바탕으로 구현하였다.
+ 
+- GAN 모델 소개
+ TST는 이미지 딥러닝에서 자주 사용되는 GAN 모델을 NLP 분야에서 차용하여 사용한 것이다. GAN에 대해 간략하게 설명하자면 다음과 같다.<br/>
+ 
+ {"A?":"B","a":5,"d":"B","h":"www.canva.com","c":"DAEtwubgD-8","i":"aQkhqvJ6gGHipbX5lvoxmw","b":1635681920780,"A":[{"A?":"I","A":310.52682680090925,"B":64.60679524462205,"D":1439.199777654131,"C":621.2545706873666,"a":{"B":{"A":{"A":"MAEt5anmLHE","B":1},"B":{"B":-1.1368683772161603e-13,"D":1439.1997776541311,"C":621.2545706873666}}}}],"B":1920,"C":1080}
+ {"A?":"B","a":5,"d":"B","h":"www.canva.com","c":"DAEtwubgD-8","i":"aQkhqvJ6gGHipbX5lvoxmw","b":1635681920780,"A":[{"A?":"I","A":931.7813974882758,"B":64.60679524462205,"D":1310.3616697690743,"C":139.79973228428022,"a":{"B":{"A":{"A":"MAEt2XeSXBE","B":1},"B":{"B":-1.1368683772161603e-13,"D":1310.3616697690745,"C":139.79973228428022}}}}],"B":1920,"C":1080}
+ 
+ "위조지폐범"으로 비유되는 generator는 가짜 지폐를 만들고 "위조지폐구분자"로 비유되는 discriminator는 이를 진짜 지폐와 가짜 지폐로 구분한다.<br/>
+ 처음에는 노이즈로 만든 가짜 지폐를 사용하기 때문에 Discriminator가 이를 구분하기 쉽지만, Generator는 더욱 이를 진짜 지폐처럼 만들게 되고, Discriminator의 구분 능력도 더 향상되어서, 결론적으로 진짜와 가짜를 더 이상 구분하지 못할 때 (즉 확률이 0.5가 될 때) 학습은 멈추게 된다.)<br/>
+ Discriminator와 Generator의 목적함수이다. V(D, G)가 목적함수인데 이를 Generator 입장에서는 최소화 하고, Discriminator입장에서는 최대화하는 것이 본 모델 - 생성적 적대 신경망 -의 목적이다.<br/>
+ D(x)는 Discriminator가 진짜를 진짜로 구분할 확률이고, D(G(z))는 Discriminator가 가짜를 진짜로 구분할 확률이다. 때문에 Discriminator는 전자(D(x))는 최대화하고 후자(D(G(z))는 최소화 하는 데 그 목적이 있다.<br/>
+ 실제로 이를 이루게 되면, 즉 진짜는 진짜로 가짜는 완전히 가짜로 구분하게 되면 D(x) = 1, D(G(z))=0이 되고 각각 log(1) = 0 , log(1-0)=0이 되므로 최대값 0을 산출하게 된다.<br/>
+ 이와 달리 Generator는 D(x)와는 무관하게 D(G(z))=1로 만드는 데 목적이 있다.<br/>
+ log (1-1) = log(0)은 -inf므로 D(G(z))가 = 1일 때 V(D,G)는 최소가 된다.<br/>
+ 이처럼 Generator는 V(D, G)를 최소화하고( V(D, G)=-inf), Discriminator는 V(D, G)를 최대화 하는( V(D, G)=0)팽팽한 적대적인 관계 내에서 결론적으로 구분할 수 없는 위조지폐같은 <가짜>를 얻어 내는 것이 본 신경망의 기법이다.
+
+- NLP에서의 차용
+ 이미지는 연속적인 데이터를 주재료로 하는 반면, NLP 태스크는 연속적이지 않고 이산적이기 때문에(discrete) Style Transfer를 하기 위해서 잠재 의미 공간(Latent Space)이 필요하다.<br/>
+ 이 원본과 변형물(transfered) 사이의 잠재 공간을 형성하게 해주는 알고리즘이 Crossed - Aligned Auto Encoder다.<br/>
+ 
+
+
+ 
 
  
  #<hr width = "100%" color = "gray" size = "0.1">
