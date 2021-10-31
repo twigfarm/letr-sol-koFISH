@@ -253,19 +253,6 @@ classifier 모델 베이스라인은 Kobert NSMC clf와 Kobart NSMC clf 를 이�
         ```
 
    
-   ## ❕ Results
-
-<img width="620" alt="스크린샷 2021-10-31 오후 12 31 27" src="https://user-images.githubusercontent.com/84896185/139566368-9796088f-ffd9-4ac4-8b15-17f5fbb5c7c3.png">
-
-
-
-
-
-  ACC가 0.6의 결과는 참담했습니다.<br/>
-  원인 딥러닝 모델이 **자연스러운 한국어**와 **부자연스러운 한국어**의 맥락 상의 차이를 발견하지 못했기 때문입니다.<br/>
-  classifer도 구분확률이 0.5를 상회했기 때문에 **원문**과 **역번역문**의 **구분이 이루어지지 않는 것**을 확인할 수 있었습니다.<br/>
-  bart classifier의 경우는 0.8이 넘는 구분 성능을 보여주었지만, 이 또한 **성능 평가 지표**로만 활용될 뿐 실제 훈련에 **영향을 주지 않기 때문**에 성능 향상에는 어려움을 겪었습니다. 
-
    ## 📔 References
     - https://blog.diyaml.com/teampost/Text-Style-Transfer/
     - Style Transfer from Non-Parallel Text by Cross-Alignment, Tianxiao Shen et al, NIPS 2017
