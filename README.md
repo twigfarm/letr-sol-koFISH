@@ -2,20 +2,20 @@
 ### 부자연스러운 한국어를 자연스러운 한국어로 변환하는 Cross Aligned Model
 
 <br> 
-GAN을 모태로하는 Style Transfer모델은 이미지 분야에서 주로 연구되어 왔으나, 2017년을 기점으로 자연어처리에서도 연구되었습니다.
-최근 3년 동안 연구된 자연어 분야에서의 style transfer는 주로 감성 분석에 바탕해 긍정문을 부정문으로, 혹은 부정문을 긍정문으로 바꾸는 작업이 주된 작업이었습니다.
+GAN을 모태로하는 Style Transfer모델은 이미지 분야에서 주로 연구되어 왔으나, 2017년을 기점으로 자연어처리에서도 연구되었습니다.<br/>
+최근 3년 동안 연구된 자연어 분야에서의 style transfer는 주로 감성 분석에 바탕해 긍정문을 부정문으로, 혹은 부정문을 긍정문으로 바꾸는 작업이 주된 작업이었습니다.<br/>
 KOfish에서는 한국의 작가 웹진 브런치에서 크롤링한 데이터와 AI hub 구어체 데이터와 이를 역번역한 데이터를 통해 원문인 자연스러운 한국어와 역번역문인 부자연스러운 한국어 말뭉치 쌍을 가지고서 Style Trainsfer를 진행했습니다
 
 Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/teampost/Text-Style-Transfer/)에서 데이터를 브런치 데이터로 바꾸고 classifier를 bart로 적용하는 등 자연스러운 한국어 변환 태스크를 수행하기 위한 변형을 가미하였습니다.
 
 
  ## 📌 Dependancy 
--   python == 3.7 
--   pytorch >= 1.4.0
+-   `python == 3.7 `
+-   `pytorch >= 1.4.0`
   
 
 
- ## 🐕 EXAMPLES
+ ## 🔴 EXAMPLES
  ### ● DATA
  ### 1-1. 브런치 데이터 크롤러<br/>
  본 프로젝트에서는 보다 자연스러운 구어체를 필요로 했습니다. 따라서 게시글 작성자에 의해 1차 정제가 이뤄진 문장을 크롤링 하고자 했습니다.<br/>
@@ -121,8 +121,11 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
         ```
  ### 2-1. Branch Data를 이용한 스타일 트랜스퍼 진행
  
-   1) 
-
+   1) j
+   2) 
+   
+   ## ❔ How to use
+   
    ## 🍰 Results
 
 <img width="620" alt="스크린샷 2021-10-31 오후 12 31 27" src="https://user-images.githubusercontent.com/84896185/139566368-9796088f-ffd9-4ac4-8b15-17f5fbb5c7c3.png">
