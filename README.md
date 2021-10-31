@@ -15,7 +15,7 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
   
 
 
- ## 📝 EXAMPLES
+ ## 📝 explanation
  ### ● DATA
  `현재 데이터 크기 문제로 업로드가 불가능한 상태입니다.`
  ### 1-1. 브런치 데이터 크롤러<br/>
@@ -170,7 +170,8 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
  <hr width = "100%" color = "gray" size = "0.1">
  <br/><br/>
  
- ## ❔ How to use
+ ## ❔ EXAMPLES
+ `How to use`
  ### 1-1. Crawlier
    data/src/crawlier/crawlier.py 파일을 열어 저장경로와 카테고리 넘버를 수정 후 진행
    
