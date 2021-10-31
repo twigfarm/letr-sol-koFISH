@@ -18,8 +18,8 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
  ## 🐕 EXAMPLES
  
  1. 브런치 데이터 크롤링
--  브런치 구조(https://brunch.co.kr/)
-   브런치 사이트 구조에 대한 기술.<br/>
+-  브런치 구조(https://brunch.co.kr/)<br/>
+   #브런치 사이트 구조에 대한 기술.<br/>
    
    브런치 사이트는 (2021.10.31. 기준) 총 24개의 카테고리로 구성 되어있습니다.
    ```
