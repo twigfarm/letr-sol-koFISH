@@ -97,22 +97,23 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
  ### ● Model
 
  ### 2. 스타일 트랜스퍼 진행
-    options.py 에서 train, test, val_text파일 설정 후 
+ 
+   options.py 에서 train, test, val_text파일 설정 후 
     
-    1) Classifier 모델 훈련
+   1) Classifier 모델 훈련
 
         ```
        python bert_pretrained/classifier.py --ckpt_path "./ckpt" --clf_ckpt_path "./clf_ckpt" 
        
        ```
 
-    2) Style Transfer 모델 훈련
+   2) Style Transfer 모델 훈련
     
         ```
         python train.py --ckpt_path "./ckpt" --clf_ckpt_path "./clf_ckpt"
 
          ```
-    3) Transfer!
+   3) Transfer!
 
           ```
         python trasfer.py --mode "transfer" --ckpt_path "./ckpt" --clf_ckpt_path "./clf_ckpt"
