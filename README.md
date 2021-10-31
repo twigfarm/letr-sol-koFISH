@@ -99,7 +99,7 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
  
  ## ❔ How to use
  ### 1. Crawlier
-   crawlier/crawlier.py 파일을 열어 경로와 카테고리 넘버를 수정 후 진행
+   crawlier/crawlier.py 파일을 열어 저장경로와 카테고리 넘버를 수정 후 진행
    
    ```
    cd crawlier
