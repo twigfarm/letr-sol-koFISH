@@ -102,7 +102,7 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
     
    1) Classifier 모델 훈련
 
-        ```
+       ```
        python bert_pretrained/classifier.py --ckpt_path "./ckpt" --clf_ckpt_path "./clf_ckpt" 
        
        ```
@@ -112,13 +112,13 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
         ```
         python train.py --ckpt_path "./ckpt" --clf_ckpt_path "./clf_ckpt"
 
-         ```
+        ```
    3) Transfer!
 
-          ```
+        ```
         python trasfer.py --mode "transfer" --ckpt_path "./ckpt" --clf_ckpt_path "./clf_ckpt"
 
-         ```
+        ```
     
 
    ## 🍰 Results
