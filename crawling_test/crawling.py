@@ -1,4 +1,4 @@
-### https://brunch.co.kr/ - Crawling
+### https://brunch.co.kr/ - Crawlier
 
 ### Library import
 import re
@@ -14,6 +14,7 @@ import nltk
 import kss
 import pandas as pd
 import numpy as np
+import random
 
 
 ### profileId crawler
@@ -27,14 +28,15 @@ import numpy as np
 profile_url = 'https://api.brunch.co.kr/v1/top/keyword/group/52?publishTime={}&pickContentId='
 profile_headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36'}
 
-#url_list = ['33','34','52','67']
+# 카테고리리스트
 '''
-2 : 글쓰기 코치, 9: 직장인 현실 조언
-13 : 뮤직 인사이드
-32 : 영화리뷰, 33 : IT/트랜드, 34 : 그림/웹툰, 39 : 사진/촬영
-40 : 책
-52 : 인문학/철학
-67 : 시사/이슈
+1:우리집 반려동물, 2:글쓰기 코치, 9:직장인 현실조언
+13:뮤직 인사이드
+32:영화리뷰, 33:IT/트랜드, 34:그림/웹툰, 39:사진/촬영, 35:스타트업 경험담, 38:지구한바퀴 세계여행
+40:책, 42:멘탈관리/심리탐구, 43:디자인스토리, 44:사랑/이별, 45:건강/운동, 46:감성 에세이
+50:요리/레시피, #52:인문학/철학, 56:멋진 캘리그래피, 59:육아이야기,
+64:문화/예술, #67:시사/이슈 69:쉽게읽는 역사
+77:건출/설계
 '''
 
 # 게시물 로드에 이용할 publishTime 변수
@@ -47,7 +49,7 @@ profile_list = []
 cleaned_result = []
 for i in tqdm(range(0, 1000)):#1000번의 페이지 바꾸기
     for j in range(0, 19): #페이지당 20명의 유저 아이디 추출(0~19)
-        profile_url = 'https://api.brunch.co.kr/v1/top/keyword/group/52?publishTime={}&pickContentId='.format(str_time)
+        profile_url = 'https://api.brunch.co.kr/v1/top/keyword/group/46?publishTime={}&pickContentId='.format(str_time)
         variables = {"publishTime":str_time
         }
         profile_params = {"variables":json.dumps(variables)
@@ -121,13 +123,13 @@ for i in tqdm(range(0, 1000)):#1000번의 페이지 바꾸기
                                         for sent in result:
                                             for sent in kss.split_sentences(sent):
                                                 cleaned_p.append(sent)
-                                    
+
                                         for p_len in range(len(cleaned_p)):
                                             if len(cleaned_p[p_len]) > 20 and len(cleaned_p[p_len]) < 51:
                                                 result.append(cleaned_p[p_len])
                                                 print(f"Insert {p_len}번")
                                                 #데이터 저장
-                                                with open('/home/tf-dev-01/workspace_sol/style-transfer/crawling/keyword_52.csv', 'a') as f:
+                                                with open('/home/style-transfer/crawling/data/result_46.txt', 'a') as f:
                                                     f.writelines(cleaned_p[p_len])
                                                     f.write('\n')
                                                     f.close()
@@ -142,7 +144,7 @@ for i in tqdm(range(0, 1000)):#1000번의 페이지 바꾸기
                                                 result.append(s)
 
                                         result = str(result).strip().replace('. ', '.\n')
-                                        with open('/home/tf-dev-01/workspace_sol/style-transfer/crawling/error_52.csv', 'a') as f:
+                                        with open('/home/style-transfer/crawling/data/error/error_46.txt', 'a') as f:
                                             f.writelines(result)
                                             f.write('\n')
                                             f.close()
@@ -171,11 +173,12 @@ for i in tqdm(range(0, 1000)):#1000번의 페이지 바꾸기
                                         if len(cleaned_h4[h4_len]) > 20 and len(cleaned_h4[h4_len]) < 51:
                                             result.append(cleaned_h4[h4_len])
                                             print(f"Insert {h4_len}번")
-                                            with open('/home/tf-dev-01/workspace_sol/style-transfer/crawling/keyword_52.csv', 'a') as f:
+                                            with open('/home/style-transfer/crawling/data/result_46.txt', 'a') as f:
                                                 f.writelines(cleaned_h4[h4_len])
                                                 f.write('\n')
                                                 f.close()
                                             print(f"Complete {h4_len}번", cleaned_h4[h4_len])
+                                            
                             # status code가 400(에러)일 경우 해당 아이디와 게시물 번호를 출력하고 continue
                             else : 
                                 print(f"{q}의 {g}번째 게시물에 접근", "=", response.status_code)
@@ -189,5 +192,4 @@ for i in tqdm(range(0, 1000)):#1000번의 페이지 바꾸기
     #print("{}번째 아이디 : {}의 {}번째 게시물을 출력을 완료했습니다.").format(len(profile_list),profile_list[i],g)
     print(len(profile_list),"번째 아이디 :", profile_list[i],"의", g,"번째 게시물을 출력을 완료했습니다.")
     print(i)
-
 
