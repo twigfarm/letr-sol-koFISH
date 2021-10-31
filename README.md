@@ -42,7 +42,9 @@ Baseline 코드로 사용된 엄의섭님의 코드 (https://blog.diyaml.com/tea
    pickContentId: 
    ```
    앞서 말씀드린 경로 업데이트를 통해 추가적인 라이브러리 없이 게시물을 계속해서 로드하고 크롤링 할 수 있습니다.<br/>
+   
    ---
+   
 -  브런치 크롤링 방안
    1) 유저별 게시글에 접근
      1-1) 해당 게시글의 경로는 다음과 같다.https://brunch.co.kr/@rlrmadks/165 https://brunch.co.kr/@27dbad9229ae4b3/16
